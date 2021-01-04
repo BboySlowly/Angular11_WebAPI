@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "angular11"
+  "defaultProject": "angular11",
+  "cli": {
+    "analytics": "546bced4-cd1d-4b96-afd6-b4ee383907f7"
+  }
 }
