@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
+import { ShowDepComponent } from 'src/app/department/show-dep/show-dep.component';
 
 @Component({
   selector: 'app-add-edit-dep',
@@ -8,11 +9,11 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class AddEditDepComponent implements OnInit {
 
-  constructor(private service: SharedService) { }
+  constructor(private service: SharedService, private showdep: ShowDepComponent) { }
 
   @Input() dep: any;
-  DepartmentId: string;
-  DepartmentName: string;
+  DepartmentId: string = "";
+  DepartmentName: string = "";
 
   ngOnInit(): void {
     this.DepartmentId = this.dep.DepartmentId;
@@ -23,6 +24,7 @@ export class AddEditDepComponent implements OnInit {
     var val = { DepartmentId: this.DepartmentId, DepartmentName: this.DepartmentName };
     this.service.addDepartment(val).subscribe(res => {
       alert(res.toString());
+      this.showdep.refreshDepList();
     });
   }
 
@@ -30,6 +32,7 @@ export class AddEditDepComponent implements OnInit {
     var val = { DepartmentId: this.DepartmentId, DepartmentName: this.DepartmentName };
     this.service.updateDepartment(val).subscribe(res => {
       alert(res.toString());
+      this.showdep.refreshDepList();
     });
   }
 

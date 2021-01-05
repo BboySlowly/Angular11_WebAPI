@@ -23,7 +23,7 @@ export class SharedService {
     return this.http.put(this.APIUrl + '/Department', val);
   }
 
-  delateDepartment(val: any) {
+  deleteDepartment(val: any) {
     return this.http.delete(this.APIUrl + '/Department/' + val);
   }
 
@@ -39,7 +39,7 @@ export class SharedService {
     return this.http.put(this.APIUrl + '/Employee', val);
   }
 
-  delateEmployee(val: any) {
+  deleteEmployee(val: any) {
     return this.http.delete(this.APIUrl + '/Employee/' + val);
   }
 
